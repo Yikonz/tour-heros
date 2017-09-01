@@ -18,6 +18,7 @@ import { HeroService } from './hero.service'
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
+  // other modules whose exported classes are needed by component templates declared in this module.
   imports: [
     BrowserModule,
     FormsModule,
@@ -25,6 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
+  // the view classes that belong to this module.
   declarations: [
     AppComponent,
     HeroesComponent,
@@ -32,9 +34,13 @@ import { AppRoutingModule } from './app-routing.module';
     DashboardComponent,
     HeroSearchComponent
   ],
+  // creators of services that this module contributes to the global collection of services; they become accessible in
+  // all parts of the app.
   providers: [
     HeroService
   ],
+  // the main application view, called the root component, that hosts all other app views. Only the root module should
+  // set this bootstrap property.
   bootstrap: [
     AppComponent
   ]
